@@ -1,0 +1,122 @@
+/* Navbar.css – Sleek & Premium Dark Theme */
+
+.navbar {
+  background-color: #1F2937; /* dark slate */
+  color: #F9FAFB; /* light gray text */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-left {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #F9FAFB;
+  text-decoration: none;
+}
+
+.nav-right {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: #F9FAFB;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #374151; /* slightly lighter dark */
+  cursor: pointer;
+}
+
+/* Optional: call-to-action (login/signup) with soft blue accent */
+.nav-link.login-btn {
+  background-color: #3B82F6;
+  color: white;
+  font-weight: 500;
+}
+
+.nav-link.login-btn:hover {
+  background-color: #60A5FA;
+}
+
+/* Navbar.css – Sleek & Premium Dark Theme */
+
+.navbar {
+  background-color: #1F2937; /* dark slate */
+  color: #F9FAFB; /* light gray text */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-left {
+  font-size: 1.2rem; 
+  font-weight: bold;
+  color: #F9FAFB;
+  text-decoration: none;
+}
+
+.nav-right {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-link {
+  color: #F9FAFB;
+  text-decoration: none;
+  font-size: 0.9rem; /* 🔽 Slightly smaller text */
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #374151; /* slightly lighter dark */
+  cursor: pointer;
+}
+
+/* Optional: call-to-action (login/signup) with soft blue accent */
+.nav-link.login-btn {
+  background-color: #3B82F6;
+  color: white;
+  font-weight: 500;
+}
+
+.nav-link.login-btn:hover {
+  background-color: #60A5FA;
+}
+
+.login-btn {
+  background-color: #3B82F6;
+  color: white;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
+}
+
+.login-btn:hover {
+  background-color: #60A5FA;
+}
+
+
+/*make the navbar thin*/

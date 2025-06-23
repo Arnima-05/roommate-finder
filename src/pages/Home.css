@@ -1,0 +1,79 @@
+/* src/pages/Home.css */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f3f3f3;
+}
+
+.home-container {
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.card-wrapper {
+  overflow: hidden;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.card-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 20s linear infinite;
+}
+
+.card-set {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  width: 260px;
+  height: 320px;
+  background-color: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Scroll animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Hide scrollbar for compatibility */
+.card-track::-webkit-scrollbar {
+  display: none;
+}
+.card-track {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
