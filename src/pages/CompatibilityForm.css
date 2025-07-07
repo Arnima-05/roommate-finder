@@ -1,63 +1,131 @@
 /* CompatibilityForm.css */
 
-.form-container {
+.compatibility-form-container {
   max-width: 800px;
-  margin: 30px auto;
-  padding: 30px;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  background-color: #f9f9f9;
-  font-family: 'Segoe UI', sans-serif;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
 }
 
-.form-container h2 {
+.compatibility-form-container h2 {
   text-align: center;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.edit-notice {
+  background: rgba(251, 191, 36, 0.2);
+  border: 2px solid #fbbf24;
+  border-radius: 10px;
+  padding: 15px;
   margin-bottom: 25px;
-  color: #333;
+  text-align: center;
+  font-weight: 600;
+  color: #fbbf24;
+  backdrop-filter: blur(10px);
 }
 
-.section-title {
-  margin-top: 30px;
-  font-size: 20px;
-  font-weight: bold;
-  color: #444;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 6px;
+.compatibility-form {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-label {
+.compatibility-form label {
   display: block;
   margin-top: 15px;
-  margin-bottom: 6px;
-  font-weight: 500;
-  color: #222;
+  margin-bottom: 8px;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
 }
 
-input[type="text"],
-input[type="number"],
-select {
+.compatibility-form input,
+.compatibility-form select {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #aaa;
-  border-radius: 6px;
-  font-size: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
 }
 
-select {
-  background-color: #fff;
+.compatibility-form input:focus,
+.compatibility-form select:focus {
+  border-color: #fbbf24;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.2);
+  background: rgba(255, 255, 255, 0.15);
 }
 
-button {
-  margin-top: 30px;
-  padding: 12px 25px;
-  background-color: #4caf50;
+.compatibility-form input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.compatibility-form select option {
+  background: #4a5568;
+  color: white;
+}
+
+.compatibility-form button {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: white;
   border: none;
-  font-size: 16px;
   border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
 }
 
-button:hover {
-  background-color: #45a049;
+.compatibility-form button:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.compatibility-form button:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .compatibility-form-container {
+    padding: 15px;
+  }
+  
+  .compatibility-form-container h2 {
+    font-size: 2rem;
+  }
+  
+  .compatibility-form {
+    padding: 20px;
+  }
+  
+  .compatibility-form label {
+    font-size: 0.95rem;
+  }
+  
+  .compatibility-form input,
+  .compatibility-form select {
+    font-size: 0.95rem;
+    padding: 10px 12px;
+  }
+  
+  .compatibility-form button {
+    font-size: 1.1rem;
+    padding: 12px;
+  }
 }

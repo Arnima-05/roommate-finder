@@ -8,10 +8,9 @@ function Navbar({ isLoggedIn, username, onLogout }) {
   return (
     <div className="navbar">
       <div className="nav-left">
-        <Link className="logo" to="/">RoommateFinder</Link>
+        <Link className="logo" to="/">CoLive Connect</Link>
       </div>
       <div className="nav-right">
-        <Link className="nav-link" to="/find-roommates">Find Roommates</Link>
         <Link className="nav-link" to="/post-listing">Post a Listing</Link>
 
         {isLoggedIn && (

@@ -4,58 +4,107 @@ import './Login.css';
 import { useNavigate } from 'react-router-dom';
 
 function Login({ onLogin }) {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+  const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate login success
-    if (username.trim()) {
-      onLogin(username);
-      navigate('/'); // redirect to home
+
+    try {
+      const res = await fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ 
+          email: formData.email, 
+          password: formData.password 
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data.message || "Login failed");
+
+      // Save user in localStorage and navigate
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("currentUser", JSON.stringify(data.user));
+      if (rememberMe) {
+        localStorage.setItem("rememberMe", "true");
+      }
+      onLogin(data.user.username, data.user.id);
+      navigate("/");
+    } catch (err) {
+      alert(err.message);
     }
   };
 
   return (
-    <div className="login-page">
-      <div className="wrapper">
+    <div className="auth-container">
+      <div className="auth-form">
+        <div className="auth-header">
+          <h1>🔐 Welcome Back</h1>
+          <p>Sign in to your CoLive Connect account</p>
+        </div>
+        
         <form onSubmit={handleSubmit}>
-          <h1>Login</h1>
-
-          <div className="input-box">
+          <div className="form-group">
+            <label htmlFor="email">📧 Email Address</label>
             <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Enter your email"
               required
             />
-            <label>Username</label>
-            <i className="bx bxs-user"></i>
           </div>
 
-          <div className="input-box">
+          <div className="form-group">
+            <label htmlFor="password">🔒 Password</label>
             <input
               type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Enter your password"
               required
             />
-            <label>Password</label>
-            <i className="bx bxs-lock-alt"></i>
           </div>
 
-          <div className="remember-forgot">
-            <label>
-              <input type="checkbox" /> Remember me
+          <div className="form-options">
+            <label className="checkbox-label">
+              <input 
+                type="checkbox" 
+                checked={rememberMe}
+                onChange={(e) => setRememberMe(e.target.checked)}
+              />
+              <span className="checkmark"></span>
+              Remember me
             </label>
-            <a href="/forgot-password">Forgot password?</a>
+            <a href="/forgot-password" className="forgot-link">Forgot password?</a>
           </div>
 
-          <button type="submit" className="btn">Login</button>
+          <button type="submit" className="auth-btn">
+            🚀 Sign In
+          </button>
 
-          <div className="register-link">
-            <p>Don't have an account? <a href="/register">Register</a></p>
+          <div className="auth-footer">
+            <p>Don't have an account? 
+              <a href="/register" className="auth-link"> Create one here</a>
+            </p>
           </div>
         </form>
       </div>

@@ -2,33 +2,32 @@
 import React from "react";
 import "./Home.css";
 
-const roomData = [
-  { id: 1, city: "Mumbai", image: "/room1.jpeg" },
-  { id: 2, city: "Delhi", image: "/room2.jpg"  },
-  { id: 3, city: "Bangalore", image: "/room3.jpg"  },
-  { id: 4, city: "Pune", image: "/room4.jpg"  },
-  { id: 5, city: "Chennai", image: "/room5.jpg"  },
-  { id: 6, city: "Kolkata", image: "/room6.jpg"  },
-  { id: 7, city: "Hyderabad", image: "/room7.jpg" },
-  { id: 8, city: "Ahmedabad", image: "/room8.jpeg"  },
-];
-
 const Home = () => {
   return (
     <div className="home-container">
-      <h1>Featured Listings</h1>
-      <div className="card-wrapper">
-        <div className="card-track">
-          <div className="card-set">
-            {roomData.concat(roomData).map((room, index) => (
-              <div className="card" key={index}>
-                <img src={room.image} alt={`Room ${room.id}`} />
-                <div className="card-content">
-                  <h3>Room #{room.id}</h3>
-                  <p>City: {room.city}</p>
-                </div>
-              </div>
-            ))}
+      <div className="hero-section">
+        <h1>Welcome to CoLive Connect</h1>
+        <p>Find your perfect roommate match based on compatibility and lifestyle preferences</p>
+        <div className="hero-buttons">
+          <a href="/register" className="cta-button primary">Get Started</a>
+          <a href="/login" className="cta-button secondary">Sign In</a>
+        </div>
+      </div>
+      
+      <div className="features-section">
+        <h2>Why Choose CoLive Connect?</h2>
+        <div className="features-grid">
+          <div className="feature-card">
+            <h3>🎯 Smart Matching</h3>
+            <p>Our advanced compatibility algorithm matches you with roommates based on lifestyle, habits, and preferences.</p>
+          </div>
+          <div className="feature-card">
+            <h3>🔒 Safe Connections</h3>
+            <p>Connect with potential roommates through our secure messaging system after mutual acceptance.</p>
+          </div>
+          <div className="feature-card">
+            <h3>🏠 Verified Profiles</h3>
+            <p>Detailed compatibility profiles help you make informed decisions about your living situation.</p>
           </div>
         </div>
       </div>
